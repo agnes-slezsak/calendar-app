@@ -38,18 +38,17 @@ export const computeHourGroups = (appointments: Appointment[]): HourGroup[] => {
   for (const { hour, isEmpty } of hourStatuses) {
     if (!isEmpty) {
       groups.push({ type: "visible", hour });
-      continue;
-    }
-
-    const last = groups.at(-1);
-    if (last?.type === "collapsed") {
-      last.hours.push(hour);
     } else {
-      groups.push({
-        type: "collapsed",
-        hours: [hour],
-        id: `collapsed-${hour}`,
-      });
+      const last = groups.at(-1);
+      if (last?.type === "collapsed") {
+        last.hours.push(hour);
+      } else {
+        groups.push({
+          type: "collapsed",
+          hours: [hour],
+          id: `collapsed-${hour}`,
+        });
+      }
     }
   }
 

@@ -1,10 +1,10 @@
+const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
 interface CalendarHeaderProps {
   weekDays: string[];
 }
 
 const CalendarHeader = ({ weekDays }: CalendarHeaderProps) => {
-  const DAY_LABELS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
   return (
     <div className="calendar-header">
       <div className="time-label-cell" />

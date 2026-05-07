@@ -41,7 +41,7 @@ const CalendarView = ({ appointments }: CalendarViewProps) => {
                 hour={hour}
                 weekDays={weekDays}
                 appointments={appointments}
-                isCollapsible={true}
+                isGrouped={true}
                 onCollapse={i === 0 ? () => handleToggle(group.id) : undefined}
               />
             ));

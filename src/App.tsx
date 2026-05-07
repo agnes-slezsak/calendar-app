@@ -9,7 +9,6 @@ const App = () => {
 
   return (
     <main className="app">
-      <h1 className="app-title">Week of Apr 7 – Apr 13, 2025</h1>
       <CalendarView appointments={appointments} />
     </main>
   );

@@ -6,8 +6,8 @@ interface TimeSlotRowProps {
   hour: number;
   weekDays: string[];
   appointments: Appointment[];
+  isGrouped?: boolean;
   onCollapse?: () => void;
-  isCollapsible?: boolean;
 }
 
 const TimeSlotRow = ({
@@ -15,7 +15,7 @@ const TimeSlotRow = ({
   weekDays,
   appointments,
   onCollapse,
-  isCollapsible: isGrouped = false,
+  isGrouped = false,
 }: TimeSlotRowProps) => {
   const label = `${String(hour).padStart(2, "0")}:00`;
 

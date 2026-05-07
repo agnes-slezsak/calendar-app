@@ -138,11 +138,7 @@ body {
   border-right: none;
 }
 
-.appointment-start {
-  background: var(--color-brand-bg);
-  border-left: 3px solid var(--color-brand);
-}
-
+.appointment-start,
 .appointment-continuation {
   background: var(--color-brand-bg);
   border-left: 3px solid var(--color-brand);

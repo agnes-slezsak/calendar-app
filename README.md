@@ -56,3 +56,9 @@ Data fetching (`src/hooks/useAppointments.ts`):
 - **No CSS framework** — wireframe-level per spec, minimal dependencies
 - **`useMemo` for `computeHourGroups`** — memoized so expanding/collapsing groups doesn't recompute hour groups on every render
 - **`Appointment` type imported from `mockApi.ts`** — single source of truth, never redefined across files
+
+## Trade-offs
+
+- **Hardcoded week start (`2025-04-07`)** — `getWeekDays()` accepts a `weekStart` parameter; defaulting to the current week would be a one-line change at the call site.
+- **Tests cover only the pure utility functions** — pure functions are the highest-ROI target: deterministic, easy to assert, no DOM setup. Component-level tests for the expand/collapse interaction (via React Testing Library) would be the next addition.
+- **Accessibility** — semantic `<button>` elements throughout; production would add `aria-expanded` on collapsed rows and richer labels on appointment cells.

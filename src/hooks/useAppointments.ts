@@ -5,9 +5,11 @@ interface UseAppointmentsResult {
   appointments: Appointment[];
   loading: boolean;
   error: string | null;
+  reload: () => void;
 }
 
 export const useAppointments = (): UseAppointmentsResult => {
+  const [refreshKey, setRefreshKey] = useState(0);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -23,7 +25,13 @@ export const useAppointments = (): UseAppointmentsResult => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [refreshKey]);
 
-  return { appointments, loading, error };
+  const reload = () => {
+    setLoading(true);
+    setError(null);
+    setRefreshKey((k) => k + 1);
+  };
+
+  return { appointments, loading, error, reload };
 };
